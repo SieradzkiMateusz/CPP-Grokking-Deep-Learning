@@ -60,15 +60,33 @@ int main()
     error[i] = pow(delta[i], 2);
   }
 
-  std::cout << "Predictions : ";
+  std::cout << "Predictions :{ ";
   for(float prediction : pred)
-    std::cout << prediction << " ";
+    std::cout << prediction << ", ";
 
   std::vector<std::vector<float>> weight_deltas = outer_prod(input, delta);
 
+  std::cout << "}\nWeight_deltas:\n";
+  for(std::vector<float> row : weight_deltas)
+  {
+    std::cout << "{ ";
+    for(float value : row)
+      std::cout << value << ", ";
+    std::cout << "}\n";
+  }
+
+
+  std::cout << "\nWeights:\n";
   for(int i=0; i<int(weights.size()); i++)
-    for(int j=0; j<int(weights[0].size()); i++)
+  {
+    std::cout << "{ ";
+    for(int j=0; j<int(weights[0].size()); j++)
+    {
       weights[i][j] -= alpha * weight_deltas[i][j];
+      std::cout << weights[i][j] << ", ";
+    }
+    std::cout << "}\n";
+  }
 
   return 0;
 }
