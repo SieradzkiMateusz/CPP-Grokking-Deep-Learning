@@ -15,13 +15,15 @@ std::vector<float> neural_network(std::vector<float> input, std::vector<std::vec
 
 std::vector<std::vector<float>> outer_prod(std::vector<float> vec_a, std::vector<float>  vec_b)
 {
-  std::vector<std::vector<float>> output;
-  
-  for(int i=0; i<int(vec_a.size()); i++)
-    for(int j=0; j<int(vec_b.size()); j++)
-      output[i][j] = vec_a[i] * vec_b[j];
+    int rows = vec_a.size();
+    int cols = vec_a.size();
+    std::vector<std::vector<float>> output (rows, std::vector<float>(cols, 0));
 
-  return output;
+    for (int i = 0; i<rows; i++)
+        for (int j = 0; j<cols; j++)
+            output[i][j] = vec_a[i] * vec_b[j];
+
+    return output;
 }
 
 
