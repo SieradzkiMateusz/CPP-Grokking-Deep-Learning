@@ -2,6 +2,8 @@
 
 float w_sum(std::vector<float> vec_a, std::vector<float> vec_b)
 {
+  /* Calculate dot product */
+
   assert(vec_a.size() == vec_b.size());
   float output = 0;
 

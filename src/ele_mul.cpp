@@ -2,6 +2,8 @@
 
 std::vector<float> ele_mul(float number, std::vector<float> vec)
 {
+  /* Multiplicate items in a vector by a scalar */
+
   std::vector<float> output = {0, 0, 0};
   assert(output.size() == vec.size());
 

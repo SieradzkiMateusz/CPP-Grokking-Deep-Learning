@@ -4,6 +4,8 @@
 
 std::vector<float> vect_mat_mul(std::vector<float> vect, std::vector<std::vector<float>> matrix)
 {
+  /* Multiplicate vector by a matrix */
+
   assert(vect.size() == matrix.size());
   std::vector<float> output = {0, 0, 0};
 
