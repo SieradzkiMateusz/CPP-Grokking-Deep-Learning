@@ -1,9 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <math.h>
-#include "../include/w_sum.h"
-#include "../include/ele_mul.h"
-#include "../include/vect_sub.h"
+#include "../include/mathFuncs.h"
 
 int main()
 {
@@ -32,13 +30,13 @@ int main()
       std::vector<float> input = streetlights[j];
       float goal_prediction = walk_vs_stop[j];
       
-      float prediction = w_sum(input, weights);
+      float prediction = mf::dot_product(input, weights);
 
       float delta = prediction - goal_prediction;
       float error = pow(delta, 2);
       error_for_all_lights += error;
 
-      weights = vect_sub(weights, ele_mul(alpha, (ele_mul(delta, input))));
+      weights = mf::vect_subt(weights, mf::scalar_mult(alpha, (mf::scalar_mult(delta, input))));
 
       std::cout << "Prediction: " << prediction << std::endl;
     }

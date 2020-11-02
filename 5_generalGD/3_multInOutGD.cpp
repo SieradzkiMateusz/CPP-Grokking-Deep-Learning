@@ -1,13 +1,11 @@
 #include <iostream>
 #include <math.h>
 
-#include "../include/vect_mat_mul.h"
-#include "../include/w_sum.h"
-
+#include "../include/mathFuncs.h"
 
 std::vector<float> neural_network(std::vector<float> input, std::vector<std::vector<float>> weights)
 {
-  std::vector<float> pred = vect_mat_mul(input, weights);
+  std::vector<float> pred = mf::vect_mat_mul(input, weights);
 
   return pred;
 }

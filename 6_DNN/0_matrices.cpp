@@ -1,9 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <math.h>
-#include "../include/w_sum.h"
-#include "../include/ele_mul.h"
-#include "../include/vect_sub.h"
+#include "../include/mathFuncs.h"
 
 int main()
 {
@@ -25,10 +23,10 @@ int main()
 
   for(int i=0; i<20; i++)
   {
-    float prediction = w_sum(input, weights);
+    float prediction = mf::dot_product(input, weights);
     float delta = prediction - goal_prediction;
     float error = pow(delta, 2);
-    weights = vect_sub(weights, ele_mul(alpha, (ele_mul(delta, input))));
+    weights = mf::vect_subt(weights, mf::scalar_mult(alpha, (mf::scalar_mult(delta, input))));
 
     std::cout << "Error: " << error << " Prediction: " << prediction << std::endl;
   }
