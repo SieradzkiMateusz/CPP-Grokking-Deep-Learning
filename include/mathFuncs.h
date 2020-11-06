@@ -3,6 +3,7 @@
 #include <vector>
 #include <assert.h>
 #include <math.h>
+#include <random>
 
 namespace mf {
 
@@ -13,5 +14,12 @@ namespace mf {
   std::vector<float> vect_sub(std::vector<float> vec_a, std::vector<float> vec_b);
 
   std::vector<float> dot(std::vector<float> vec_a, std::vector<float> vec_b);
+
+  std::vector<std::vector<float>> random_matrix(int rows, int cols, int modifier);
+
+  //Scalar-Vector Addition/Subratcion
+  //Vector transpose
+  //Relu
+  //Relu2Deriv
 
 }

@@ -63,4 +63,27 @@ namespace mf{
     return output;
   }
 
+
+  std::vector<std::vector<float>> random_matrix(int rows, int cols, int modifier = 1)
+  {
+    /* Initialize matrix with random values between 0 and 1 */
+
+    std::random_device rd;
+    std::mt19937 rng(rd());
+    std::uniform_real_distribution<> dist(0,1);
+
+    std::vector<std::vector<float>> output;
+    std::vector<float> aux_vect(cols, 0);
+
+    for(int i=0; i<rows; i++)
+    {
+      for(int j=0; j<cols; i++)
+        aux_vect[j] = dist(rng) * modifier;
+
+      output.push_back(aux_vect);
+    }
+
+    return output;
+  }
+
 }
